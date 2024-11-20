@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pet List</title>
+    <style>
+        /* General body styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e9ecef;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Page header */
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Back to adminhome link */
+        .back-home {
+            text-decoration: none;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            display: inline-block;
+        }
+
+        .back-home:hover {
+            background-color: #0056b3;
+        }
+
+        /* Pet list container */
+        .pet-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        /* Pet card styling */
+        .pet-card {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 220px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .pet-card:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Pet image styling */
+        .pet-card img {
+            border-radius: 8px;
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        /* Breed name and pet details */
+        .breed-name, .pet-details {
+            font-weight: bold;
+            font-size: 16px;
+            margin: 5px 0;
+            color: #333;
+        }
+
+        .pet-details {
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* Scroll-to-top button */
+        #scrollButton {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: none;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+
+        #scrollButton:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <!-- Back to Admin Home -->
+    <a href="{% url 'adminhome' %}" class="back-home">Back to Admin Home</a>
+    <div>
+        {% if p %}
+        <p>total pet count:{{p|length}}</p>
+        {% endif %}
+    </div>
+
+    <h1>List of Pets</h1>
+
+    <div class="pet-list">
+        {% if p %}
+            {% for pet in p %}
+            <div class="pet-card">
+                {% if pet.image %}
+                <img src="{{ pet.image.url }}" alt="Image of a {{ pet.breed }} dog">
+                {% else %}
+                <p>No image available</p>
+                {% endif %}
+
+                <!-- Pet details -->
+                <div class="breed-name">{{ pet.breed }}</div>
+                <div class="pet-details">Age: {{ pet.age }}</div>
+                <div class="pet-details">Color: {{ pet.color }}</div>
+
+                <!-- Action links -->
+                <a href="{% url 'vaccine_list' pet.id %}" class="link-button">List Vaccine Chart</a>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p>No pets available.</p>
+        {% endif %}
+    </div>
+
+    <!-- Scroll-to-top button -->
+    <button id="scrollButton" title="Go to top">↑</button>
+
+    <script>
+        // Get the button
+        const scrollButton = document.getElementById("scrollButton");
+
+        // Show the button after scrolling 100px
+        window.onscroll = function() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                scrollButton.style.display = "block";
+            } else {
+                scrollButton.style.display = "none";
+            }
+        };
+
+        // Scroll to top when button is clicked
+        scrollButton.onclick = function() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        };
+    </script>
+</body>
+</html>

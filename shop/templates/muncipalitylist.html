@@ -1,0 +1,100 @@
+{% extends "adminhome.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Municipality List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f3e9;
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #ffffff;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f0ad4e;
+            color: white;
+        }
+        .status-form {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        select {
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Municipality List</h1>
+    <div id="search-by-breed" class="search-form">
+        <form action="/searchmuncipality/" method="post">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Search by username...">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Place</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Username</th>
+                <th>Status</th>
+                <th>Update Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for muncipality in m %}
+            <tr>
+                <td>{{ muncipality.muncipality_name }}</td>
+                <td>{{ muncipality.place }}</td>
+                <td>{{ muncipality.phone }}</td>
+                <td>{{ muncipality.muncipality_email }}</td>
+                <td>{{ muncipality.username }}</td>
+                <td>{{ muncipality.status }}</td>
+                <td>
+                    <form method="POST" class="status-form">
+                        {% csrf_token %}
+                        <input type="hidden" name="muncipality_id" value="{{ muncipality.id }}">
+                        <select name="status">
+                            <option value="Active" {% if muncipality.status == "Active" %}selected{% endif %}>Active</option>
+                            <option value="Inactive" {% if muncipality.status == "Inactive" %}selected{% endif %}>Inactive</option>
+                        </select>
+                        <button type="submit">Update</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+{% endblock %}
