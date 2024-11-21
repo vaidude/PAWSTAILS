@@ -111,6 +111,10 @@
                 <div class="card shadow-lg">
                     <div class="card-header">
                         <h3>Street Dog Adoption - Registration</h3>
+                        {% if msg %}
+                        <div class="alert alert-success" role="alert">
+                            {{ msg }}
+    
                     </div>
                     <div class="card-body">
                         <form method="POST" action="" enctype="multipart/form-data">
