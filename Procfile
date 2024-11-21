@@ -1,1 +1,1 @@
-web: gunicorn PAWSTAILS.wsgi
+web: gunicorn PAWSTAILS.wsgi:application
