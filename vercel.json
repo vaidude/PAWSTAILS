@@ -11,6 +11,10 @@
         "src": "/(.*)",
         "dest": "PAWSTAILS/wsgi.py"
       }
-    ]
+    ],
+    "config": {
+      "lambdasize": "15mb",
+      "runtime": "python3.9"
+    }
   }
   
