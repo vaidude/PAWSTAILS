@@ -27,7 +27,7 @@
   <!-- Custom styles for this template -->
   <link href="{% static 'css/style.css' %}" rel="stylesheet" />
   <!-- responsive style -->
-  <link href="{%static 'css/responsive.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
 </head>
 
 <body>
@@ -37,7 +37,7 @@
       <div class="container-fluid">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand" href="index.html">
-            <img src="{%static 'images/logo.png' %}" alt="">
+            <img src="{% static 'images/logo.png' %}" alt="">
             <span>
              Paws & Tails
             </span>
@@ -155,7 +155,7 @@
                 </div>
                 <div class="col-md-6">
                   <div class="slider_img-box">
-                    <img src="{%static 'images/slider-img.png' %}" alt="">
+                    <img src="{% static 'images/slider-img.png' %}" alt="">
                   </div>
                 </div>
               </div>
@@ -189,7 +189,7 @@
                 </div>
                 <div class="col-md-6">
                   <div class="slider_img-box">
-                    <img src="{%static 'images/slider-img.png' %}" alt="">
+                    <img src="{% static 'images/slider-img.png' %}" alt="">
                   </div>
                 </div>
               </div>
@@ -223,7 +223,7 @@
                 </div>
                 <div class="col-md-6">
                   <div class="slider_img-box">
-                    <img src="{%static 'images/slider-img.png' %}" alt="">
+                    <img src="{% static 'images/slider-img.png' %}" alt="">
                   </div>
                 </div>
               </div>
@@ -243,7 +243,7 @@
       <div class="row">
         <div class="col-md-6">
           <div class="img-box">
-            <img src="{%static 'images/about.png' %}" alt="">
+            <img src="{% static 'images/about.png' %}" alt="">
           </div>
         </div>
         <div class="col-md-6">
@@ -292,7 +292,7 @@ Pet care is about providing love, safety, and essential needs to ensure pets liv
               </div>
               <div class="col-md-4">
                 <div class="img_box">
-                  <img src="{%static 'images/s-2.png' %}" alt="">
+                  <img src="{% static 'images/s-2.png' %}" alt="">
                 </div>
                 <div class="detail_box">
                   <h6>
@@ -305,7 +305,7 @@ Pet care is about providing love, safety, and essential needs to ensure pets liv
               </div>
               <div class="col-md-4">
                 <div class="img_box">
-                  <img src="{%static 'images/s-3.png' %}" alt="">
+                  <img src="{% static 'images/s-3.png' %}" alt="">
                 </div>
                 <div class="detail_box">
                   <h6>
@@ -326,7 +326,7 @@ In case of an emergency, we're here 24/7 to provide immediate assistance and ens
           </div>
         </div>
         <div class="col-md-4">
-          <img src="{%static 'images/tool.png' %}" alt="" class="w-100">
+          <img src="{% static 'images/tool.png' %}" alt="" class="w-100">
         </div>
       </div>
     </div>
@@ -345,19 +345,19 @@ In case of an emergency, we're here 24/7 to provide immediate assistance and ens
     </div>
     <div class="container ">
       <div class="img_box box-1">
-        <img src="{%static 'images/2dogs.jpg' %}" alt="">
+        <img src="{% static 'images/2dogs.jpg' %}" alt="">
       </div>
       <div class="img_box box-2">
-        <img src="{%static 'images/str.jpeg' %}" alt="">
+        <img src="{% static 'images/str.jpeg' %}" alt="">
       </div>
       <div class="img_box box-3">
-        <img src="{%static 'images/dog3.jpg' %}" alt="">
+        <img src="{% static 'images/dog3.jpg' %}" alt="">
       </div>
       <div class="img_box box-4">
-        <img src="{%static 'images/dog4.jpg' %}" alt="">
+        <img src="{% static 'images/dog4.jpg' %}" alt="">
       </div>
       <div class="img_box box-5">
-        <img src="{%static 'images/street-6104056_1280.jpg' %}" alt="">
+        <img src="{% static 'images/street-6104056_1280.jpg' %}" alt="">
       </div>
     </div>
   </section>
@@ -409,7 +409,7 @@ In case of an emergency, we're here 24/7 to provide immediate assistance and ens
             <div class="layout_padding2 pl-100">
               <div class="client_container ">
                 <div class="img_box">
-                  <img src="{%static 'images/client.jpg' %}" alt="">
+                  <img src="{% static 'images/client.jpg' %}" alt="">
                 </div>
                 <div class="detail_box">
                   <h5>
@@ -432,7 +432,7 @@ In case of an emergency, we're here 24/7 to provide immediate assistance and ens
             <div class="layout_padding2 pl-100">
               <div class="client_container ">
                 <div class="img_box">
-                  <img src="{%static 'images/client.jpg' %}" alt="">
+                  <img src="{% static 'images/client.jpg' %}" alt="">
                 </div>
                 <div class="detail_box">
                   <h5>
@@ -455,7 +455,7 @@ In case of an emergency, we're here 24/7 to provide immediate assistance and ens
             <div class="layout_padding2 pl-100">
               <div class="client_container ">
                 <div class="img_box">
-                  <img src="{%static 'images/client.jpg' %}" alt="">
+                  <img src="{% static 'images/client.jpg' %}" alt="">
                 </div>
                 <div class="detail_box">
                   <h5>
@@ -581,8 +581,8 @@ In case of an emergency, we're here 24/7 to provide immediate assistance and ens
   </section>
   <!-- footer section -->
 
-  <script type="text/javascript" src="{%static 'js/jquery-3.4.1.min.js' %}"></script>
-  <script type="text/javascript" src="{%static 'js/bootstrap.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
 
   <script>
     // This example adds a marker to indicate the position of Bondi Beach in Sydney,
